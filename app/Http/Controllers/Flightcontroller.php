@@ -3,14 +3,28 @@
 namespace App\Http\Controllers;
 
 use App\Models\Flight;
-use Illuminate\Http\Request;
 
 class FlightController extends Controller
 {
-    // Šī metode tiks izsaukta no Route
+    // Page with the map
     public function index()
     {
-        $flights = Flight::all(); // vai ->paginate(10)
-        return view('flights.index', compact('flights'));
+        return view('flights.index');
+    }
+
+    
+    public function api()
+    {
+        return Flight::select(
+            'id',
+            'callsign',
+            'latitude',
+            'longitude',
+            'on_ground',
+            'heading',
+            'velocity',
+            'baro_altitude',
+            'geo_altitude'
+        )->get();
     }
 }

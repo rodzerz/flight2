@@ -25,7 +25,7 @@ class FlightSeeder extends Seeder
         $flights = [];
 
         foreach ($states as $state) {
-            // Indexi pēc OpenSky API specifikācijas
+            
             $callsign = trim($state[1] ?? '');
 
             if ($callsign === '') {

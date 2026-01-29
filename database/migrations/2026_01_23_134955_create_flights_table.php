@@ -11,29 +11,27 @@ return new class extends Migration
         Schema::create('flights', function (Blueprint $table) {
             $table->id();
 
-            // Flight info
             $table->string('callsign')->unique();
 
-            // Position
             $table->decimal('longitude', 10, 7)->nullable();
             $table->decimal('latitude', 10, 7)->nullable();
 
-            // Status
+         
             $table->boolean('on_ground')->default(false);
 
-            // Movement
-            $table->float('velocity')->nullable(); // m/s
-            $table->float('heading')->nullable();  // degrees
+           
+            $table->float('velocity')->nullable(); 
+            $table->float('heading')->nullable();  
 
-            // Altitude
-            $table->float('baro_altitude')->nullable(); // meters
-            $table->float('geo_altitude')->nullable();  // meters
+        
+            $table->float('baro_altitude')->nullable(); 
+            $table->float('geo_altitude')->nullable();  
 
-            // Timestamps from API
-            $table->unsignedBigInteger('last_contact')->nullable(); // unix time
-            $table->unsignedBigInteger('snapshot_time')->nullable(); // API "time"
+           
+            $table->unsignedBigInteger('last_contact')->nullable(); 
+            $table->unsignedBigInteger('snapshot_time')->nullable(); 
 
-            // Laravel timestamps
+            
             $table->timestamps();
         });
     }

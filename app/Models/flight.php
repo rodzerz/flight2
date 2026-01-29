@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Models;
-use App\Http\Controllers\FlightController;
+
 use Illuminate\Database\Eloquent\Model;
 
 class Flight extends Model
@@ -22,14 +22,12 @@ class Flight extends Model
     ];
 
     protected $casts = [
-        'on_ground'      => 'boolean',
-        'longitude'      => 'float',
-        'latitude'       => 'float',
-        'velocity'       => 'float',
-        'heading'        => 'float',
+        'on_ground' => 'boolean',
+        'longitude' => 'float',
+        'latitude'  => 'float',
+        'velocity'  => 'float',
+        'heading'   => 'float',
         'baro_altitude'  => 'float',
         'geo_altitude'   => 'float',
-        'last_contact'   => 'integer',
-        'snapshot_time'  => 'integer',
     ];
 }
